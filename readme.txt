@@ -3,7 +3,7 @@ Contributors: zslabs
 Tags: jquery,google
 Requires at least: 3.3
 Tested up to: 3.4.1
-Stable tag: 0.2
+Stable tag: 0.3
 License: GPLv2
 
 Loads jQuery from Google using the exact jQuery version as your current WordPress install while still maintaining backwards comptability for the core WP jQuery library
@@ -28,6 +28,9 @@ There’s been a [whole heap of discussions](http://wpcandy.com/teaches/how-to-l
 Sure! I'm always open to knew ideas. Just create a new forum post and I'll take a gander.
 
 == Changelog ==
+
+= 0.3 =
+* Test push using https://github.com/benbalter/Github-to-WordPress-Plugin-Directory-Deployment-Script
 
 = 0.2 =
 * Removed CURL function (if Google is down, the entire Internet is down)
