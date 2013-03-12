@@ -5,7 +5,7 @@ Plugin URI: http://zslabs.com
 Description: Loads jQuery from Google using the exact jQuery version as your current WordPress install while still maintaining backwards comptability for the core WP jQuery library
 Author: Zach Schnackel
 Author URI: http://zslabs.com
-Version: 0.4
+Version: 0.4.1
 */
 
 
