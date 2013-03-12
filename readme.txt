@@ -3,18 +3,16 @@ Contributors: zslabs
 Tags: jquery,google
 Requires at least: 3.3
 Tested up to: 3.4.1
-Stable tag: 0.3
+Stable tag: 0.4
 License: GPLv2
 
 Loads jQuery from Google using the exact jQuery version as your current WordPress install while still maintaining backwards comptability for the core WP jQuery library
 
 == Description ==
 
-There’s been a [whole heap of discussions](http://wpcandy.com/teaches/how-to-load-scripts-in-wordpress-themes) recently about the "correct" way to load jQuery onto your site. I thought I’d throw my solution into the ring. What this plugin does differently than others is it loads jQuery from Google - while still maintaining backwards compatability for the core WP jQuery library AND uses the core WP jQuery version!
+There’s been a whole heap of discussions about the "correct" way to load jQuery onto your site. I thought I’d throw my solution into the ring. What this plugin does differently than others is it loads jQuery from Google - while providing a fallback to the local version in the event the CDN is down or you are not allowed to access Google (like in China). It also uses the same version as WordPress does - automagically.
 
-*Future Plans*
-
-* Store URL in transient for one less DB query (will only re-generate on WP upgrade to check for new jQuery version)
+**WordPress 3.5 is now required for protocol relative URLs**
 
 == Installation ==
 
@@ -28,6 +26,9 @@ There’s been a [whole heap of discussions](http://wpcandy.com/teaches/how-to-l
 Sure! I'm always open to knew ideas. Just create a new forum post and I'll take a gander.
 
 == Changelog ==
+
+= 0.4 =
+* Added local fallback to bundled jQuery in the event CDN is down
 
 = 0.3 =
 * Test push using https://github.com/benbalter/Github-to-WordPress-Plugin-Directory-Deployment-Script
