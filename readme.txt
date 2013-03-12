@@ -1,9 +1,9 @@
 === WP jQuery Plus ===
 Contributors: zslabs
 Tags: jquery,google
-Requires at least: 3.3
-Tested up to: 3.4.1
-Stable tag: 0.4
+Requires at least: 3.5
+Tested up to: 3.5.1
+Stable tag: 0.4.1
 License: GPLv2
 
 Loads jQuery from Google using the exact jQuery version as your current WordPress install while still maintaining backwards comptability for the core WP jQuery library
@@ -26,6 +26,9 @@ There’s been a whole heap of discussions about the "correct" way to load jQuer
 Sure! I'm always open to knew ideas. Just create a new forum post and I'll take a gander.
 
 == Changelog ==
+
+= 0.4.1 =
+* Updated readme requirements
 
 = 0.4 =
 * Added local fallback to bundled jQuery in the event CDN is down
