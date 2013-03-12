@@ -5,7 +5,7 @@ Plugin URI: http://zslabs.com
 Description: Loads jQuery from Google using the exact jQuery version as your current WordPress install while still maintaining backwards comptability for the core WP jQuery library
 Author: Zach Schnackel
 Author URI: http://zslabs.com
-Version: 0.4.1
+Version: 0.4.2
 */
 
 
@@ -56,6 +56,8 @@ add_action( 'wp_enqueue_scripts', 'wpjp_set_src' );
 
 /**
  * Add local fallback for jQuery if CDN is down or not accessible
+ * Inspired by http://rootstheme.com
+ * Inspired by http://wordpress.stackexchange.com/a/12450
  * @param  string $src
  * @param  string $handle
  * @return string
