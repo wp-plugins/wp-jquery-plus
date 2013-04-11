@@ -5,7 +5,7 @@ Plugin URI: http://zslabs.com
 Description: Loads jQuery from Google using the exact jQuery version as your current WordPress install while still maintaining backwards comptability for the core WP jQuery library
 Author: Zach Schnackel
 Author URI: http://zslabs.com
-Version: 0.4.2
+Version: 0.5
 */
 
 
@@ -36,19 +36,42 @@ register_activation_hook( __FILE__, 'wpjp_activate' );
  */
 function wpjp_set_src() {
 
+	global $wp_version;
+
 	if ( !is_admin() ) {
 
-		// Get current version of jQuery from WordPress core
-		$wp_jquery_ver = $GLOBALS['wp_scripts']->registered['jquery']->ver;
+		// Check to see if we're on 3.6 or newer (changed the jQuery handle)
+		if ( version_compare( $wp_version, '3.6-alpha1', '>=' ) ) {
 
-		// Set jQuery Google URL
-		$jquery_google_url = '//ajax.googleapis.com/ajax/libs/jquery/'.$wp_jquery_ver.'/jquery.min.js';
+			// Get current version of jQuery from WordPress core
+			$wp_jquery_ver = $GLOBALS['wp_scripts']->registered['jquery-core']->ver;
 
-		// De-register jQuery
-		wp_deregister_script( 'jquery' );
+			// Set jQuery Google URL
+			$jquery_google_url = '//ajax.googleapis.com/ajax/libs/jquery/'.$wp_jquery_ver.'/jquery.min.js';
 
-		// Register jQuery with Google URL
-		wp_register_script( 'jquery', $jquery_google_url, '', null, false );
+			// De-register jQuery
+			wp_deregister_script( 'jquery-core' );
+
+			// Register jQuery with Google URL
+			wp_register_script( 'jquery-core', $jquery_google_url, '', null, false );
+
+		}
+		// Theeen we're on 3.5 (since the plugin will deactivate if any lower)
+		else {
+
+			// Get current version of jQuery from WordPress core
+			$wp_jquery_ver = $GLOBALS['wp_scripts']->registered['jquery']->ver;
+
+			// Set jQuery Google URL
+			$jquery_google_url = '//ajax.googleapis.com/ajax/libs/jquery/'.$wp_jquery_ver.'/jquery.min.js';
+
+			// De-register jQuery
+			wp_deregister_script( 'jquery' );
+
+			// Register jQuery with Google URL
+			wp_register_script( 'jquery', $jquery_google_url, '', null, false );
+
+		}
 
 	}
 }
@@ -64,6 +87,8 @@ add_action( 'wp_enqueue_scripts', 'wpjp_set_src' );
  */
 function wpjp_local_fallback( $src, $handle ) {
 
+	global $wp_version;
+
 	if ( !is_admin() ) {
 
 		static $add_jquery_fallback = false;
@@ -73,9 +98,21 @@ function wpjp_local_fallback( $src, $handle ) {
 			$add_jquery_fallback = false;
 		}
 
-		if ( $handle === 'jquery' ) {
-			$add_jquery_fallback = true;
+		// Check to see what version we're using (so we can use the appropriate handle)
+		if ( version_compare( $wp_version, '3.6-alpha1', '>=' ) ) {
+
+			if ( $handle === 'jquery-core' ) {
+				$add_jquery_fallback = true;
+			}
+
 		}
+		else {
+
+			if ( $handle === 'jquery' ) {
+				$add_jquery_fallback = true;
+			}
+		}
+
 
 		return $src;
 
