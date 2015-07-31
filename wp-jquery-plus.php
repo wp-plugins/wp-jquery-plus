@@ -5,7 +5,7 @@ Plugin URI: http://zslabs.com
 Description: Loads jQuery from a CDN using the exact version as your current WordPress install
 Author: Zach Schnackel
 Author URI: http://zslabs.com
-Version: 1.1.0
+Version: 1.1.1
 */
 
 /**
