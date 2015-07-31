@@ -5,7 +5,7 @@ Plugin URI: http://zslabs.com
 Description: Loads jQuery from a CDN using the exact version as your current WordPress install
 Author: Zach Schnackel
 Author URI: http://zslabs.com
-Version: 1.1.1
+Version: 1.1.2
 */
 
 /**
@@ -41,7 +41,7 @@ function wpjp_set_src() {
 		// Register jQuery with CDN URL
 		wp_register_script('jquery-core', $jquery_cdn_url, '', null, false );
 		// Register jQuery Migrate with CDN URL
-		wp_register_script('jquery-migrate', $jquery_migrate_cdn_url, ['jquery-core'], null, false );
+		wp_register_script('jquery-migrate', $jquery_migrate_cdn_url, array('jquery-core'), null, false );
 
 	endif;
 }
