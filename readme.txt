@@ -19,6 +19,8 @@ By default, jQuery is loaded from [Google](https://developers.google.com/speed/l
 
 `define('WPJP_USE_CDNJS', true);`
 
+**PHP 5.4 is required**
+
 == Installation ==
 
 1. Upload the `wp-jquery-plus` folder to the `/wp-content/plugins/` directory
@@ -31,6 +33,9 @@ By default, jQuery is loaded from [Google](https://developers.google.com/speed/l
 Sure! I'm always open to knew ideas. Just create a new forum post and I'll take a gander.
 
 == Changelog ==
+
+= 1.1.1 =
+* Quick-note about PHP 5.4 requirement
 
 = 1.1.0 =
 * Tested in 4.2.3
