@@ -3,7 +3,7 @@ Contributors: zslabs
 Tags: jquery,google,cdn,cdnjs,jquery migrate
 Requires at least: 3.5
 Tested up to: 4.2.3
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: GPLv2
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=EEMPDX7SN4RFW
 
